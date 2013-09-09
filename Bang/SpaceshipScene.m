@@ -102,14 +102,26 @@ static inline CGFloat skRand(CGFloat low, CGFloat high) {
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     for (UITouch *touch in touches) {
-        SKNode *spaceship = [self childNodeWithName:@"spaceship"];
-        if (spaceship != nil) {
-            CGPoint touchLocation = [touch locationInNode:self];
-            SKAction *moveToTouchLocation = [SKAction sequence:@[[SKAction moveTo:touchLocation duration:0.3]]];
-            [spaceship runAction:moveToTouchLocation];
-        }
+        CGPoint touchLocation = [touch locationInNode:self];
+        [self moveSpaceshipToLocation:touchLocation];
     }
+}
 
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    for (UITouch *touch in touches) {
+        CGPoint touchLocation = [touch locationInNode:self];
+        [self moveSpaceshipToLocation:touchLocation];
+    }
+}
+
+- (void)moveSpaceshipToLocation:(CGPoint)location
+{
+    SKNode *spaceship = [self childNodeWithName:@"spaceship"];
+    if (spaceship != nil) {
+        SKAction *moveToTouchLocation = [SKAction sequence:@[[SKAction moveTo:location duration:0.3]]];
+        [spaceship runAction:moveToTouchLocation];
+    }
 }
 
 #pragma mark - Physics
