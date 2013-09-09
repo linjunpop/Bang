@@ -103,7 +103,7 @@ static inline CGFloat skRand(CGFloat low, CGFloat high) {
 {
     for (UITouch *touch in touches) {
         CGPoint touchLocation = [touch locationInNode:self];
-        [self moveSpaceshipToLocation:touchLocation];
+        [self moveSpaceshipToLocation:touchLocation duration:0.1];
     }
 }
 
@@ -111,15 +111,15 @@ static inline CGFloat skRand(CGFloat low, CGFloat high) {
 {
     for (UITouch *touch in touches) {
         CGPoint touchLocation = [touch locationInNode:self];
-        [self moveSpaceshipToLocation:touchLocation];
+        [self moveSpaceshipToLocation:touchLocation duration:0];
     }
 }
 
-- (void)moveSpaceshipToLocation:(CGPoint)location
+- (void)moveSpaceshipToLocation:(CGPoint)location duration:(NSTimeInterval)sec
 {
     SKNode *spaceship = [self childNodeWithName:@"spaceship"];
     if (spaceship != nil) {
-        SKAction *moveToTouchLocation = [SKAction sequence:@[[SKAction moveTo:location duration:0.3]]];
+        SKAction *moveToTouchLocation = [SKAction sequence:@[[SKAction moveTo:location duration:sec]]];
         [spaceship runAction:moveToTouchLocation];
     }
 }
