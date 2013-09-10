@@ -456,12 +456,12 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GameTest/GameTest-Prefix.pch";
+				GCC_PREFIX_HEADER = "Bang/Bang-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "GameTestTests/BangTests-Info.plist";
+				INFOPLIST_FILE = "BangTests/BangTests-Info.plist";
 				PRODUCT_NAME = BangTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -478,8 +478,8 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GameTest/GameTest-Prefix.pch";
-				INFOPLIST_FILE = "GameTestTests/BangTests-Info.plist";
+				GCC_PREFIX_HEADER = "Bang/Bang-Prefix.pch";
+				INFOPLIST_FILE = "BangTests/BangTests-Info.plist";
 				PRODUCT_NAME = BangTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
