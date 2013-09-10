@@ -14,6 +14,9 @@
 
 @implementation SpaceshipScene
 
+static const uint32_t rockCategory = 0x1 << 0;
+static const uint32_t spaceshipCategory = 0x1 << 1;
+
 - (id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         self.physicsWorld.contactDelegate = self;
@@ -34,9 +37,17 @@
     self.backgroundColor = [SKColor blackColor];
     self.scaleMode = SKSceneScaleModeAspectFit;
 
+    // Spaceship
     SKSpriteNode *spaceship = [self newSpaceship];
     spaceship.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMinY(self.frame) + 64);
     [self addChild:spaceship];
+
+    // Rocks
+    SKAction *makeRocks = [SKAction sequence: @[
+                                                [SKAction performSelector:@selector(addRock) onTarget:self],
+                                                [SKAction waitForDuration:0.40 withRange:0.15]
+                                                ]];
+    [self runAction: [SKAction repeatActionForever:makeRocks]];
 }
 
 - (SKSpriteNode *)newSpaceship
@@ -53,15 +64,11 @@
     lightOnRight.position = CGPointMake(8.0, 0.0);
     [spaceship addChild:lightOnRight];
 
-    // Rocks
-    SKAction *makeRocks = [SKAction sequence: @[
-                                                [SKAction performSelector:@selector(addRock) onTarget:self],
-                                                [SKAction waitForDuration:0.40 withRange:0.15]
-                                                ]];
-    [self runAction: [SKAction repeatActionForever:makeRocks]];
-
     // physics
     spaceship.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:spaceship.size];
+    spaceship.physicsBody.categoryBitMask = spaceshipCategory;
+    spaceship.physicsBody.collisionBitMask = rockCategory;
+    spaceship.physicsBody.contactTestBitMask = rockCategory;
     spaceship.physicsBody.dynamic = NO;
 
     return spaceship;
@@ -94,7 +101,9 @@ static inline CGFloat skRand(CGFloat low, CGFloat high) {
     rock.position = CGPointMake(skRand(0, self.size.width), self.size.height-50);
     rock.name = @"rock";
     rock.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:rock.size];
-    rock.physicsBody.usesPreciseCollisionDetection = YES;
+    rock.physicsBody.categoryBitMask = rockCategory;
+    rock.physicsBody.collisionBitMask = spaceshipCategory;
+    rock.physicsBody.contactTestBitMask = spaceshipCategory;
     [self addChild:rock];
 }
 
@@ -126,6 +135,23 @@ static inline CGFloat skRand(CGFloat low, CGFloat high) {
 
 #pragma mark - Physics
 - (void)didBeginContact:(SKPhysicsContact *)contact
+{
+    SKPhysicsBody *firstBody, *secondBody;
+
+    if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask)
+    {
+        firstBody = contact.bodyA;
+        secondBody = contact.bodyB;
+    }
+    else {
+        firstBody = contact.bodyB;
+        secondBody = contact.bodyA;
+    }
+
+    [firstBody.node removeFromParent];
+}
+
+- (void)didEndContact:(SKPhysicsContact *)contact
 {
 
 }
