@@ -107,6 +107,25 @@ static inline CGFloat skRand(CGFloat low, CGFloat high) {
     [self addChild:rock];
 }
 
+- (void)destroyNode:(SKNode *)node
+{
+    [node removeFromParent];
+
+    SKEmitterNode *fire =  [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"FireParticle" ofType:@"sks"]];
+    fire.position = node.position;
+
+    [self addChild:fire];
+
+    SKAction *disappear = [SKAction group:@[
+                                          [SKAction scaleBy:0.3 duration:1],
+                                          [SKAction fadeOutWithDuration:1]
+                                          ]];
+
+    [fire runAction:disappear completion:^{
+        [fire removeFromParent];
+    }];
+}
+
 #pragma mark - Events
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -148,7 +167,7 @@ static inline CGFloat skRand(CGFloat low, CGFloat high) {
         secondBody = contact.bodyA;
     }
 
-    [firstBody.node removeFromParent];
+    [self destroyNode:firstBody.node];
 }
 
 - (void)didEndContact:(SKPhysicsContact *)contact

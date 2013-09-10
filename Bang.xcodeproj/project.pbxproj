@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5D32766117DC2A84001ADBA8 /* HelloScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D32766017DC2A84001ADBA8 /* HelloScene.m */; };
 		5D32766517DC2E5F001ADBA8 /* SpaceshipScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D32766417DC2E5F001ADBA8 /* SpaceshipScene.m */; };
+		5D50FB3717DEEB6900726CAB /* FireParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5D50FB3517DEEB6900726CAB /* FireParticle.sks */; };
+		5D50FB3817DEEB6900726CAB /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D50FB3617DEEB6900726CAB /* spark.png */; };
 		5DC0AD3717DAB234007474A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC0AD3617DAB234007474A8 /* Foundation.framework */; };
 		5DC0AD3917DAB234007474A8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC0AD3817DAB234007474A8 /* CoreGraphics.framework */; };
 		5DC0AD3B17DAB234007474A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC0AD3A17DAB234007474A8 /* UIKit.framework */; };
@@ -42,6 +44,8 @@
 		5D32766017DC2A84001ADBA8 /* HelloScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloScene.m; sourceTree = "<group>"; };
 		5D32766317DC2E5F001ADBA8 /* SpaceshipScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceshipScene.h; sourceTree = "<group>"; };
 		5D32766417DC2E5F001ADBA8 /* SpaceshipScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceshipScene.m; sourceTree = "<group>"; };
+		5D50FB3517DEEB6900726CAB /* FireParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireParticle.sks; sourceTree = "<group>"; };
+		5D50FB3617DEEB6900726CAB /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		5DC0AD3317DAB234007474A8 /* Bang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC0AD3617DAB234007474A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5DC0AD3817DAB234007474A8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -101,6 +105,15 @@
 			name = Scenes;
 			sourceTree = "<group>";
 		};
+		5D50FB3917DEEB8300726CAB /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				5D50FB3517DEEB6900726CAB /* FireParticle.sks */,
+				5D50FB3617DEEB6900726CAB /* spark.png */,
+			);
+			name = Particles;
+			sourceTree = "<group>";
+		};
 		5DC0AD2A17DAB234007474A8 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				5D32766217DC2E36001ADBA8 /* Scenes */,
+				5D50FB3917DEEB8300726CAB /* Particles */,
 				5DC0AD4717DAB234007474A8 /* AppDelegate.h */,
 				5DC0AD4817DAB234007474A8 /* AppDelegate.m */,
 				5DC0AD4A17DAB234007474A8 /* Main.storyboard */,
@@ -257,7 +271,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DC0AD4317DAB234007474A8 /* InfoPlist.strings in Resources */,
+				5D50FB3817DEEB6900726CAB /* spark.png in Resources */,
 				5DC0AD5617DAB234007474A8 /* Images.xcassets in Resources */,
+				5D50FB3717DEEB6900726CAB /* FireParticle.sks in Resources */,
 				5DC0AD5417DAB234007474A8 /* Spaceship.png in Resources */,
 				5DC0AD4C17DAB234007474A8 /* Main.storyboard in Resources */,
 			);
