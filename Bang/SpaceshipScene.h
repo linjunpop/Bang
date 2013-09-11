@@ -7,6 +7,8 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "Spaceship.h"
+#import "Rock.h"
 
 @interface SpaceshipScene : SKScene <SKPhysicsContactDelegate>
 

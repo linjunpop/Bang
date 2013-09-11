@@ -35,7 +35,7 @@
     self.scaleMode = SKSceneScaleModeAspectFit;
 
     // Spaceship
-    SKSpriteNode *spaceship = [self newSpaceship];
+    Spaceship *spaceship = [[Spaceship alloc] init];
     spaceship.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMinY(self.frame) + 64);
     [self addChild:spaceship];
 
@@ -45,43 +45,6 @@
                                                 [SKAction waitForDuration:0.40 withRange:0.15]
                                                 ]];
     [self runAction: [SKAction repeatActionForever:makeRocks]];
-}
-
-- (SKSpriteNode *)newSpaceship
-{
-    SKSpriteNode *spaceship = [[SKSpriteNode alloc] initWithColor:[SKColor grayColor] size:CGSizeMake(24, 24)];
-    spaceship.name = @"spaceship";
-
-    // light
-    SKSpriteNode *lightOnLeft = [self newLight];
-    lightOnLeft.position = CGPointMake(-8.0, 0.0);
-    [spaceship addChild:lightOnLeft];
-
-    SKSpriteNode *lightOnRight = [self newLight];
-    lightOnRight.position = CGPointMake(8.0, 0.0);
-    [spaceship addChild:lightOnRight];
-
-    // physics
-    spaceship.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:spaceship.size];
-    spaceship.physicsBody.categoryBitMask = SpaceshipCategory;
-    spaceship.physicsBody.collisionBitMask = RockCategory;
-    spaceship.physicsBody.contactTestBitMask = RockCategory;
-    spaceship.physicsBody.dynamic = NO;
-
-    return spaceship;
-}
-
-- (SKSpriteNode *)newLight
-{
-    SKSpriteNode *light = [[SKSpriteNode alloc] initWithColor:[SKColor yellowColor] size:CGSizeMake(8,8)];
-
-    SKAction *blink = [SKAction sequence:@[
-                                           [SKAction fadeOutWithDuration:0.25],
-                                           [SKAction fadeInWithDuration:0.25]]];
-    SKAction *blinkForever = [SKAction repeatActionForever:blink];
-    [light runAction: blinkForever];
-    
-    return light;
 }
 
 static inline CGFloat skRandf() {
@@ -94,13 +57,8 @@ static inline CGFloat skRand(CGFloat low, CGFloat high) {
 
 - (void)addRock
 {
-    SKSpriteNode *rock = [[SKSpriteNode alloc] initWithColor:[SKColor brownColor] size:CGSizeMake(8,8)];
+    Rock *rock = [[Rock alloc] init];
     rock.position = CGPointMake(skRand(0, self.size.width), self.size.height-50);
-    rock.name = @"rock";
-    rock.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:rock.size];
-    rock.physicsBody.categoryBitMask = RockCategory;
-    rock.physicsBody.collisionBitMask = SpaceshipCategory;
-    rock.physicsBody.contactTestBitMask = SpaceshipCategory;
     [self addChild:rock];
 }
 
@@ -142,10 +100,9 @@ static inline CGFloat skRand(CGFloat low, CGFloat high) {
 
 - (void)moveSpaceshipToLocation:(CGPoint)location duration:(NSTimeInterval)sec
 {
-    SKNode *spaceship = [self childNodeWithName:@"spaceship"];
+    Spaceship *spaceship = (Spaceship *)[self childNodeWithName:@"spaceship"];
     if (spaceship != nil) {
-        SKAction *moveToTouchLocation = [SKAction sequence:@[[SKAction moveTo:location duration:sec]]];
-        [spaceship runAction:moveToTouchLocation];
+        [spaceship moveToLocation:location duration:sec];
     }
 }
 

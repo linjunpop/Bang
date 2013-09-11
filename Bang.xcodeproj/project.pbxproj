@@ -27,6 +27,8 @@
 		5DC0AD6717DAB234007474A8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DC0AD6517DAB234007474A8 /* InfoPlist.strings */; };
 		5DC0AD6917DAB234007474A8 /* BangTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0AD6817DAB234007474A8 /* BangTests.m */; };
 		5DE255D117E0422A00BABFEC /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE255D017E0422A00BABFEC /* AppConstants.m */; };
+		5DE255D517E0463800BABFEC /* Spaceship.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE255D417E0463800BABFEC /* Spaceship.m */; };
+		5DE255D817E0488B00BABFEC /* Rock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE255D717E0488B00BABFEC /* Rock.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,10 @@
 		5DC0AD6817DAB234007474A8 /* BangTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BangTests.m; sourceTree = "<group>"; };
 		5DE255CF17E0422A00BABFEC /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
 		5DE255D017E0422A00BABFEC /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConstants.m; sourceTree = "<group>"; };
+		5DE255D317E0463800BABFEC /* Spaceship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spaceship.h; sourceTree = "<group>"; };
+		5DE255D417E0463800BABFEC /* Spaceship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spaceship.m; sourceTree = "<group>"; };
+		5DE255D617E0488B00BABFEC /* Rock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rock.h; sourceTree = "<group>"; };
+		5DE255D717E0488B00BABFEC /* Rock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rock.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +155,7 @@
 		5DC0AD3E17DAB234007474A8 /* Bang */ = {
 			isa = PBXGroup;
 			children = (
+				5DE255D217E0458900BABFEC /* Sprites */,
 				5D32766217DC2E36001ADBA8 /* Scenes */,
 				5D50FB3917DEEB8300726CAB /* Particles */,
 				5DC0AD4717DAB234007474A8 /* AppDelegate.h */,
@@ -191,6 +198,17 @@
 				5DC0AD6517DAB234007474A8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5DE255D217E0458900BABFEC /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				5DE255D317E0463800BABFEC /* Spaceship.h */,
+				5DE255D417E0463800BABFEC /* Spaceship.m */,
+				5DE255D617E0488B00BABFEC /* Rock.h */,
+				5DE255D717E0488B00BABFEC /* Rock.m */,
+			);
+			name = Sprites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,9 +313,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DE255D817E0488B00BABFEC /* Rock.m in Sources */,
 				5D32766117DC2A84001ADBA8 /* HelloScene.m in Sources */,
 				5DC0AD4F17DAB234007474A8 /* ViewController.m in Sources */,
 				5D32766517DC2E5F001ADBA8 /* SpaceshipScene.m in Sources */,
+				5DE255D517E0463800BABFEC /* Spaceship.m in Sources */,
 				5DE255D117E0422A00BABFEC /* AppConstants.m in Sources */,
 				5DC0AD4917DAB234007474A8 /* AppDelegate.m in Sources */,
 				5DC0AD4517DAB234007474A8 /* main.m in Sources */,
