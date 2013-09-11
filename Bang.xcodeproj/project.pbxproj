@@ -26,6 +26,7 @@
 		5DC0AD5F17DAB234007474A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC0AD3A17DAB234007474A8 /* UIKit.framework */; };
 		5DC0AD6717DAB234007474A8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DC0AD6517DAB234007474A8 /* InfoPlist.strings */; };
 		5DC0AD6917DAB234007474A8 /* BangTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0AD6817DAB234007474A8 /* BangTests.m */; };
+		5DE255D117E0422A00BABFEC /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE255D017E0422A00BABFEC /* AppConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		5DC0AD6417DAB234007474A8 /* BangTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BangTests-Info.plist"; sourceTree = "<group>"; };
 		5DC0AD6617DAB234007474A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5DC0AD6817DAB234007474A8 /* BangTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BangTests.m; sourceTree = "<group>"; };
+		5DE255CF17E0422A00BABFEC /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
+		5DE255D017E0422A00BABFEC /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +169,8 @@
 				5DC0AD4117DAB234007474A8 /* InfoPlist.strings */,
 				5DC0AD4417DAB234007474A8 /* main.m */,
 				5DC0AD4617DAB234007474A8 /* Bang-Prefix.pch */,
+				5DE255CF17E0422A00BABFEC /* AppConstants.h */,
+				5DE255D017E0422A00BABFEC /* AppConstants.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 				5D32766117DC2A84001ADBA8 /* HelloScene.m in Sources */,
 				5DC0AD4F17DAB234007474A8 /* ViewController.m in Sources */,
 				5D32766517DC2E5F001ADBA8 /* SpaceshipScene.m in Sources */,
+				5DE255D117E0422A00BABFEC /* AppConstants.m in Sources */,
 				5DC0AD4917DAB234007474A8 /* AppDelegate.m in Sources */,
 				5DC0AD4517DAB234007474A8 /* main.m in Sources */,
 			);

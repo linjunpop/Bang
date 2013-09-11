@@ -14,9 +14,6 @@
 
 @implementation SpaceshipScene
 
-static const uint32_t rockCategory = 0x1 << 0;
-static const uint32_t spaceshipCategory = 0x1 << 1;
-
 - (id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         self.physicsWorld.contactDelegate = self;
@@ -66,9 +63,9 @@ static const uint32_t spaceshipCategory = 0x1 << 1;
 
     // physics
     spaceship.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:spaceship.size];
-    spaceship.physicsBody.categoryBitMask = spaceshipCategory;
-    spaceship.physicsBody.collisionBitMask = rockCategory;
-    spaceship.physicsBody.contactTestBitMask = rockCategory;
+    spaceship.physicsBody.categoryBitMask = SpaceshipCategory;
+    spaceship.physicsBody.collisionBitMask = RockCategory;
+    spaceship.physicsBody.contactTestBitMask = RockCategory;
     spaceship.physicsBody.dynamic = NO;
 
     return spaceship;
@@ -101,9 +98,9 @@ static inline CGFloat skRand(CGFloat low, CGFloat high) {
     rock.position = CGPointMake(skRand(0, self.size.width), self.size.height-50);
     rock.name = @"rock";
     rock.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:rock.size];
-    rock.physicsBody.categoryBitMask = rockCategory;
-    rock.physicsBody.collisionBitMask = spaceshipCategory;
-    rock.physicsBody.contactTestBitMask = spaceshipCategory;
+    rock.physicsBody.categoryBitMask = RockCategory;
+    rock.physicsBody.collisionBitMask = SpaceshipCategory;
+    rock.physicsBody.contactTestBitMask = SpaceshipCategory;
     [self addChild:rock];
 }
 
