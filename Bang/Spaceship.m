@@ -11,16 +11,16 @@
 @implementation Spaceship
 - (Spaceship *)init
 {
-    self = [super initWithColor:[SKColor grayColor] size:CGSizeMake(24, 24)];
+    self = [super initWithColor:[SKColor grayColor] size:CGSizeMake(48, 48)];
     self.name = @"spaceship";
 
     // light
     SKSpriteNode *lightOnLeft = [self newLight];
-    lightOnLeft.position = CGPointMake(-8.0, 0.0);
+    lightOnLeft.position = CGPointMake(-24.0, 24.0);
     [self addChild:lightOnLeft];
 
     SKSpriteNode *lightOnRight = [self newLight];
-    lightOnRight.position = CGPointMake(8.0, 0.0);
+    lightOnRight.position = CGPointMake(24.0, 24.0);
     [self addChild:lightOnRight];
 
     // physics
